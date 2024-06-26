@@ -4,9 +4,19 @@ import (
 	"fmt"
 
 	"github.com/nobi1007/learn-go/greetings"
+
+	"log"
 )
 
 func main() {
-	msg := greetings.Hello("Shyam")
-	fmt.Println(msg)
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("S")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(message)
 }
